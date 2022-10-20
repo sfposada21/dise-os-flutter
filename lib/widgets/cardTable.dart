@@ -51,29 +51,34 @@ class _SingleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur( sigmaX: 5, sigmaY: 5),
-      child: Container(
-        margin: EdgeInsets.all(15),
-        height: 180,
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(62, 65, 107,0.7),
-          borderRadius: BorderRadius.circular(20)
-        ),
-        child: 
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 30,
-              backgroundColor:  color,
-              child: Icon(icon, size: 30, ),
+    return Container(
+      margin: EdgeInsets.all(15),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: BackdropFilter(
+          filter: ImageFilter.blur( sigmaX: 5, sigmaY: 5),
+          child: Container(          
+            height: 180,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(62, 65, 107,0.7),
+              borderRadius: BorderRadius.circular(20)
             ),
-            SizedBox( height: 10,),
-            Text(text,
-            style: TextStyle( color: color, fontSize: 18),),
-          ],
-        )),
+            child: 
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor:  color,
+                  child: Icon(icon, size: 30, color: Colors.white, ),
+                ),
+                SizedBox( height: 10,),
+                Text(text,
+                style: TextStyle( color: color, fontSize: 18),),
+              ],
+            )),
+        ),
+      ),
     );
   }
 }
